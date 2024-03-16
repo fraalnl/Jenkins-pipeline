@@ -22,4 +22,8 @@ public class App {
             return Double.NaN;
         }
     }
+
+    public int multiply(int a, int b) {
+        return a * b;
+    }
 }

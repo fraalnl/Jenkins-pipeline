@@ -12,13 +12,14 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <sonar.host.url>http://localhost:9000</sonar.host.url>
     <sonar.projectKey>org.example:JenkinsPipeline</sonar.projectKey>
     <sonar.projectName>JenkinsPipeline</sonar.projectName>
-    <sonar.host.url>http://localhost:9000</sonar.host.url>
     <sonar.sources>src/main/java</sonar.sources>
     <sonar.tests>src/test/java</sonar.tests>
-    <sonar.token>sqp_73d7747ded3626ff19b8061100fdc698e96cd28e</sonar.token>
+<!--    <sonar.token>sonar.token=sqp_73d7747ded3626ff19b8061100fdc698e96cd28e</sonar.token>-->
     <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+    <sonar.plugins.downloadOnlyRequired>true</sonar.plugins.downloadOnlyRequired>
   </properties>
 
   <build>
@@ -46,6 +47,12 @@
         </configuration>
       </plugin>
 
+<!--            <plugin>-->
+<!--              <groupId>org.sonarsource.scanner.maven</groupId>-->
+<!--              <artifactId>sonar-maven-plugin</artifactId>-->
+<!--              <version>3.11.0.3922</version>-->
+<!--            </plugin>-->
+
       <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
@@ -63,6 +70,11 @@
             <goals>
               <goal>report</goal>
             </goals>
+            <configuration>
+              <formats>
+                <format>XML</format>
+              </formats>
+            </configuration>
           </execution>
       </executions>
       </plugin>
@@ -83,12 +95,12 @@
       <version>3.8.0.2131</version>
     </dependency>
 
-    <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
-    <dependency>
-      <groupId>org.jacoco</groupId>
-      <artifactId>jacoco-maven-plugin</artifactId>
-      <version>0.8.8</version>
-    </dependency>
+    <!-- Plugin Includes Dependency -->
+<!--    <dependency>-->
+<!--      <groupId>org.jacoco</groupId>-->
+<!--      <artifactId>jacoco-maven-plugin</artifactId>-->
+<!--      <version>0.8.8</version>-->
+<!--    </dependency>-->
 
   </dependencies>
 </project>

@@ -10,6 +10,8 @@
   <name>JenkinsPipeline</name>
   <url>http://maven.apache.org</url>
 
+<!--intentional conflict test-->
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <sonar.host.url>http://localhost:9000</sonar.host.url>

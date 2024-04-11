@@ -12,17 +12,6 @@
 
 <!--intentional conflict test-->
 
-<!--  <properties>-->
-<!--    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
-<!--    <sonar.host.url>http://localhost:9000</sonar.host.url>-->
-<!--    <sonar.projectKey>org.example:JenkinsPipeline</sonar.projectKey>-->
-<!--    <sonar.projectName>JenkinsPipeline</sonar.projectName>-->
-<!--    <sonar.sources>src/main/java</sonar.sources>-->
-<!--    <sonar.tests>src/test/java</sonar.tests>-->
-<!--    <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>-->
-<!--    <sonar.plugins.downloadOnlyRequired>true</sonar.plugins.downloadOnlyRequired>-->
-<!--  </properties>-->
-
   <build>
     <plugins>
       <plugin>

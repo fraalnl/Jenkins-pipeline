@@ -15,7 +15,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                git 'https://github.com/fraalnl/Jenkins-pipeline.git'
+                checkout scm: [
+                        $class: 'GitSCM',
+                        branches: [[name: 'bugfix']],
+                        url: 'https://github.com/fraalnl/Jenkins-pipeline.git'
+                ]
                 bat 'mvn clean compile'
             }
             post {
@@ -74,7 +78,14 @@ pipeline {
                     if (env.SONARQUBE_TOKEN) {
                         sonarProperties["sonar.login"] = env.SONARQUBE_TOKEN
                     }
-                    sonarScanner.analyzer evaluate(sonarProperties)
+                    withSonarQubeEnv('sonarqube') {
+                        script {
+                            def scanner = tool 'SonarQube Scanner'
+                            withEnv(["PATH+MAVEN=${tool 'Maven-3.9.5'}/bin"]) {
+                                bat "${scanner}\\bin\\sonar-scanner.bat " + sonarProperties.collect {"-D${it.key}=${it.value}" }.join(' ')
+                            }
+                        }
+                    }
                 }
             }
         }

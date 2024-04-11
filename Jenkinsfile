@@ -17,7 +17,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                checkout([$class: 'GitSCM', branches: [name: '*/main'], userRemoteConfigs: [[url: 'https://github.com/fraalnl/Jenkins-pipeline.git']]])
+                checkout([$class: 'GitSCM',
+                          userRemoteConfigs: [[url: 'https://github.com/fraalnl/Jenkins-pipeline.git']],
+                          branches: [[name: 'main']]])
                 bat "mvn clean package -DskipTests"
             }
             post {
